@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/login.css">
+  <title>Crear cuenta | Barbexa</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/img/logo2.png">
+
+  <!-- Font Awesome para los íconos de los ojitos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="../css/register.css">
+</head>
+<body class="auth-page">
+  <div class="auth-bg"></div>
+
+  <div class="login-container">
+    <div class="login-form card">
+      <!-- Logo -->
+      <div class="logo">
+        <img src="../assets/img/logo.png" alt="Barbexa Logo">
+      </div>
+      
+
+      <!-- Divider -->
+      <div class="divider-text"><span><h2 class="card-title">REGISTER</h2></span></div>
+
+      <!-- Formulario -->
+      <form id="registerForm" novalidate>
+        <!-- Nombre -->
+        <div class="field">
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" required>
+          <small class="error"></small>
+        </div>
+
+        <!-- Email -->
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="youremail@example.com" required>
+          <small class="error"></small>
+        </div>
+
+        <!-- Contraseña -->
+        <div class="field password-field">
+          <label for="password">password</label>
+          <input id="password" name="password" type="password" placeholder="••••••••" minlength="6" required>
+          <button class="toggle-pass" type="button" aria-label="Mostrar/ocultar contraseña">
+            <i class="fa-solid fa-eye"></i>
+          </button>
+          <small class="error"></small>
+        </div>
+
+
+        <!-- Términos -->
+        <div class="terms">
+          <label class="checkbox">
+            <input id="terms" type="checkbox" required>
+            <span>I accept <a href="#">Terms of Use </a> and <a href="#">Privacy Policy</a>.</span>
+          </label>
+          <small class="error" id="termsError"></small>
+        </div>
+
+        <!-- Botón principal -->
+        <button class="btn primary" type="submit">Create account</button>
+      </form>
+
+      <!-- Link alternativo -->
+      <p class="small alt-link"> You have an account? <a href="login.html">Sign in</a></p>
+    </div>
+  </div>
+
+  <!-- Script de validación y toggle contraseña -->
+  <script>
+    document.querySelectorAll('.toggle-pass').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const input = btn.previousElementSibling; // input justo antes
+        const icon = btn.querySelector('i');
+
+        if (input.type === 'password') {
+          input.type = 'text';
+          icon.classList.remove('fa-eye');
+          icon.classList.add('fa-eye-slash');
+        } else {
+          input.type = 'password';
+          icon.classList.remove('fa-eye-slash');
+          icon.classList.add('fa-eye');
+        }
+      });
+    });
+  </script>
+
+  <!-- JS externo si usas validaciones extra -->
+  <script src="../js/register.js"></script>
+</body>
+</html>
